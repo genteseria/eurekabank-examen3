@@ -2,6 +2,7 @@ package presentacion;
 
 import entidades.*;
 import com.formdev.flatlaf.FlatLightLaf;
+import datos.Conexion;
 import javax.swing.*;
 import logica.EmpleadoBL;
 import logica.SucursalBL;
@@ -51,6 +52,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         emplPanel = new javax.swing.JPanel();
         btnAsignar = new javax.swing.JButton();
         lblEmplTitle = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("EurekaBank Office Manager");
@@ -68,7 +70,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         sucuPanel.setName("sucuPanel"); // NOI18N
 
         btnRegistrar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/registrar-suc.png"))); // NOI18N
+        btnRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/registrar-suc.png"))); // NOI18N
         btnRegistrar.setText(" Registrar");
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,7 +79,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         });
 
         btnModificar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/editar-suc.png"))); // NOI18N
+        btnModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/editar-suc.png"))); // NOI18N
         btnModificar.setText(" Modificar");
         btnModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,7 +88,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         });
 
         btnListarSuc.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnListarSuc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/listar-suc.png"))); // NOI18N
+        btnListarSuc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/listar-suc.png"))); // NOI18N
         btnListarSuc.setText("     Listar");
         btnListarSuc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -164,7 +166,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         emplPanel.setName("emplPanel"); // NOI18N
 
         btnAsignar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnAsignar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asignar.png"))); // NOI18N
+        btnAsignar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/asignar.png"))); // NOI18N
         btnAsignar.setText("Asignar");
         btnAsignar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -193,14 +195,23 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 .addComponent(lblEmplTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnAsignar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addGap(10, 10, 10))
         );
 
         getContentPane().add(emplPanel);
-        emplPanel.setBounds(29, 236, 170, 113);
+        emplPanel.setBounds(28, 236, 171, 113);
         emplPanel.getAccessibleContext().setAccessibleName("Empleados");
 
-        setSize(new java.awt.Dimension(641, 457));
+        jButton1.setText("INGRESAR CONTRASEÑA");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(410, 280, 190, 30);
+
+        setSize(new java.awt.Dimension(654, 457));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -254,6 +265,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnAsignarActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Conexion.password = JOptionPane.showInputDialog(null,"Ingrese su contraseña MySQL","Contraseña",1);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -287,6 +302,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton btnSalir;
     private javax.swing.JPanel emplPanel;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel lblDesc;
     private javax.swing.JLabel lblEmplTitle;
     private javax.swing.JLabel lblSucuTitle;
